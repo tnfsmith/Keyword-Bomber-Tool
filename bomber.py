@@ -50,7 +50,7 @@ async def suggestions_ai_analysis(keyword_data: str, api_key):
 
 
 
-async def get_suggestion_keywords_google_optimized(query, countryCode):
+async def get_suggestion_keywords_google_optimized(query, selected_country):
     # Define categorization keywords for all categories
             categories = {
                 "Questions": ["who", "what", "where", "when", "why", "how", "are"],
