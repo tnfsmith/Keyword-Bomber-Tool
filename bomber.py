@@ -88,9 +88,14 @@ async def get_suggestion_keywords_google_optimized(query, countryCode):
             return categorized_suggestions
 
 async def get_suggestions_for_query_async(query,country):
+    # Set a common browser's User-Agent
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+    }
+    # Making the request with the specified headers
     async with httpx.AsyncClient() as client:
         try:
-            response = await client.get(f"https://google.com.vn/complete/search?output=toolbar&gl={country}&hl=vi&q={query}")
+            response = await client.get(f"https://google.com.vn/complete/search?output=toolbar&gl={country}&hl=vi&q={query}", headers=headers)
             suggestions = []
             if response.status_code == 200:
                 root = ET.fromstring(response.content)
