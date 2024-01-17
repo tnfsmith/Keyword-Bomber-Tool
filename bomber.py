@@ -6,10 +6,10 @@ import llm
 
 LLM_MODEL = "gpt-3.5-turbo-1106"
 
-async def get_keyword_data(input_keyword, input_country,api_key):
+async def get_keyword_data(input_keyword, selected_country,api_key):
     # Get results
     keyword_data = await get_suggestion_keywords_google_optimized(
-        input_keyword, input_country
+        input_keyword, selected_country
     )
 
     ai_report = await suggestions_ai_analysis(keyword_data,api_key)
