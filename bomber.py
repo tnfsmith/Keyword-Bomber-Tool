@@ -106,7 +106,7 @@ async def get_suggestions_for_query_async(query,country):
         return suggestions
 
 def get_suggestions_for_query(query):
-    response = requests.get(f"http://google.com.vn/complete/search?output=toolbar&q={query}")
+    response = requests.get(f"http://google.com/complete/search?output=toolbar&q={query}")
     suggestions = []
     try:
         if response.status_code == 200:
