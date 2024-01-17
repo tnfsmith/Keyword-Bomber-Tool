@@ -1,8 +1,5 @@
 # Import necessary libraries
-import streamlit as st
-import bomber
 
-import pandas as pd
 
 # Function to run asyncio code
 def run_asyncio_code(keyword, country, api_key):
