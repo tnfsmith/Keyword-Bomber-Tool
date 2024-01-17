@@ -28,7 +28,7 @@ st.title("SEO Keyword Bomber for TTL")
 st.write("Enter the details below to fetch keyword data.")
 
 input_keyword = st.text_input("Enter the keyword", "Marketing Automation")
-input_country = st.text_input("Enter the country code", "US")
+input_country = st.text_input("Enter the country code", "VN")
 API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Need sponsor :D")
 
 if st.button("Fetch Data"):
