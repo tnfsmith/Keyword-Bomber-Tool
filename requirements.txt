@@ -6,3 +6,4 @@ pandas
 requests
 prompts
 asyncio
+AsyncOpenAI
