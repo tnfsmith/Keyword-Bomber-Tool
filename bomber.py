@@ -81,13 +81,14 @@ async def get_suggestion_keywords_google_optimized(query, selected_country):
                             # Default pattern if not specified above
                             modified_query = f"{keyword} {query}"
 
-                        category_suggestions = await get_suggestions_for_query_async(modified_query,countryCode)
+                        category_suggestions = await get_suggestions_for_query_async(modified_query,selected_country)
                         categorized_suggestions[category][keyword] = category_suggestions
                     except Exception as e:
                         print (f"Error in get_suggestion_keywords_google_optimized, {e}")
             return categorized_suggestions
 
 async def get_suggestions_for_query_async(query,country):
+    
     # Set a common browser's User-Agent
     headers = {
         #'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
@@ -95,6 +96,7 @@ async def get_suggestions_for_query_async(query,country):
         'Accept-Language': get_language_for_country(country)
     }
     # Making the request with the specified headers
+    
     async with httpx.AsyncClient() as client:
         try:
             response = await client.get(f"https://google.com.vn/complete/search?output=toolbar&gl={country}&hl=vi&q={query}", headers=headers)
@@ -124,6 +126,7 @@ def get_language_for_country(country):
         return "vi-VN"
     # Add more conditions for other countries if needed
     return "en-US"
+
 def get_suggestions_for_query(query):
     response = requests.get(f"https://google.com.vn/complete/search?output=toolbar&gl={country}&hl=vi&q={query}")
     suggestions = []
