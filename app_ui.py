@@ -1,7 +1,7 @@
 # Import necessary libraries
 import streamlit as st
-import bomber
-import asyncio
+#import bomber
+#import asyncio
 import pandas as pd
 
 # Function to run asyncio code
