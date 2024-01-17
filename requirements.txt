@@ -1,1 +1,6 @@
+openai
+llm
+httpx
+bomber
+pandas
 
