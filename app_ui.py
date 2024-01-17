@@ -30,7 +30,7 @@ st.write("Enter the details below to fetch keyword data.")
 input_keyword = st.text_input("Enter the keyword", "Marketing Automation")
 
 # Dropdown for country selection with 'Other Country' option
-countries = ["VN", "US", "JP", "SG","Other Country"]
+countries = ["VN", "US"]
 selected_country = st.selectbox("Select the country code", countries)
 #input_country = st.text_input("Enter the country code", "VN")
 
