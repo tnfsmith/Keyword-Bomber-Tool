@@ -3,6 +3,7 @@ import streamlit as st
 import bomber
 import asyncio
 import pandas as pd
+import httpx
 
 # Function to run asyncio code
 def run_asyncio_code(keyword, country, api_key):
