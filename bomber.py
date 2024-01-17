@@ -90,7 +90,7 @@ async def get_suggestion_keywords_google_optimized(query, countryCode):
 async def get_suggestions_for_query_async(query,country):
     async with httpx.AsyncClient() as client:
         try:
-            response = await client.get(f"http://google.com.vn/complete/search?output=toolbar&gl={country}&q={query}")
+            response = await client.get(f"http://google.com.vn/complete/search?output=toolbar&gl={country}&hl=vi&q={query}")
             suggestions = []
             if response.status_code == 200:
                 root = ET.fromstring(response.content)
