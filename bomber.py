@@ -90,7 +90,7 @@ async def get_suggestion_keywords_google_optimized(query, countryCode):
 async def get_suggestions_for_query_async(query,country):
     # Set a common browser's User-Agent
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+        #'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
         'User-Agent': get_user_agent_for_country(country),
         'Accept-Language': get_language_for_country(country)
     }
