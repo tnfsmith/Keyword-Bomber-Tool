@@ -27,6 +27,10 @@ st.title("SEO Keyword Bomber for TTL")
 
 st.write("Enter the details below to fetch keyword data.")
 
+# Initialize session state
+if 'last_keyword' not in st.session_state:
+    st.session_state['last_keyword'] = ''
+
 input_keyword = st.text_input("Enter the keyword", "Marketing Automation")
 
 # Dropdown for country selection with 'Other Country' option
@@ -36,6 +40,13 @@ selected_country = st.selectbox("Select the country code", countries)
 
 API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Need sponsor :D")
 
+# Check if the keyword has changed
+if input_keyword != st.session_state['last_keyword']:
+    st.session_state['last_keyword'] = input_keyword
+    # Fetch data if keyword has changed (i.e., user has pressed Enter)
+    result = asyncio.run(get_keyword_data_async(input_keyword, selected_country, api_key))
+    st.write(result)
+    
 if st.button("Fetch Data"):
     with st.spinner("Fetching data..."):
         result = run_asyncio_code(input_keyword, selected_country, API_KEY) #input_country
