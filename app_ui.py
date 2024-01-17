@@ -42,9 +42,8 @@ API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Need sponsor :D")
 
 # Check if the keyword has changed
 if input_keyword != st.session_state['last_keyword']:
-    st.session_state['last_keyword'] = input_keyword
-    # Fetch data if keyword has changed (i.e., user has pressed Enter)
-    result = run_asyncio_code(input_keyword, selected_country, API_KEY) #input_country
+    with st.spinner("Fetching data..."):
+        result = run_asyncio_code(input_keyword, selected_country, API_KEY) #input_country
         if result.get('success'):
             display_keyword_data(result['result']['keyword_data'])
             display_ai_report(result['result']['ai_report'])
