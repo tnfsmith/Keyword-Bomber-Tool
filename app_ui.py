@@ -1,6 +1,6 @@
 # Import necessary libraries
 import streamlit as st
-import bomber, llm
+import bomber
 import asyncio
 import pandas as pd
 
