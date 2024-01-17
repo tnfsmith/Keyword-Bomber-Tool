@@ -55,7 +55,7 @@ async def get_suggestion_keywords_google_optimized(query, countryCode):
             categories = {
                 "Questions": ["who", "what", "where", "when", "why", "how", "are"],
                 "Prepositions": ["can", "with", "for"],
-                "Alphabit": list("abcdefghijklmnopqrstuvwxyz1234567890"),
+                "Alphabit": list("abcdefghijklmnopqrstuvwxyz"),
                 "Comparisons": ["vs", "versus", "or"],
                 "Intent-Based": ["buy", "review", "price", "best", "top", "how to", "why to"],
                 "Time-Related": ["when", "schedule", "deadline", "today", "now", "latest"],
