@@ -24,7 +24,7 @@ def display_ai_report(ai_report):
     st.markdown(ai_report)
 
 # Streamlit UI layout
-st.title("Keyword Bomber")
+st.title("SEO Keyword Bomber for TTL")
 
 st.write("Enter the details below to fetch keyword data.")
 
