@@ -48,6 +48,7 @@ if st.button("Fetch Data"):
             display_ai_report(result['result']['ai_report'])
         else:
             st.error("Failed to fetch data")
+        break
 
 # Check if the keyword has changed
 if input_keyword != st.session_state['last_keyword']:
@@ -56,5 +57,3 @@ if input_keyword != st.session_state['last_keyword']:
         if result.get('success'):
             display_keyword_data(result['result']['keyword_data'])
             display_ai_report(result['result']['ai_report'])
-        else:
-            st.error("Failed to fetch data")
