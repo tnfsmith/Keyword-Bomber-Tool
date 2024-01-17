@@ -91,6 +91,8 @@ async def get_suggestions_for_query_async(query,country):
     # Set a common browser's User-Agent
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+        'User-Agent': get_user_agent_for_country(country),
+        'Accept-Language': get_language_for_country(country)
     }
     # Making the request with the specified headers
     async with httpx.AsyncClient() as client:
@@ -109,7 +111,19 @@ async def get_suggestions_for_query_async(query,country):
             error = e
 
         return suggestions
+def get_user_agent_for_country(country):
+    # Example: Different user agents for different countries (can be expanded)
+    if country == "VN":
+        return "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2)"
+    # Add more conditions for other countries if needed
+    return "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 
+def get_language_for_country(country):
+    # Example: Different language preferences for different countries (can be expanded)
+    if country == "VN":
+        return "vi-VN"
+    # Add more conditions for other countries if needed
+    return "en-US"
 def get_suggestions_for_query(query):
     response = requests.get(f"https://google.com.vn/complete/search?output=toolbar&gl={country}&hl=vi&q={query}")
     suggestions = []
