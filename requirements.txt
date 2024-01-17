@@ -3,4 +3,6 @@ llm
 httpx
 bomber
 pandas
+requests
+prompts
 
