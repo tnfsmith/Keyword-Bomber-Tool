@@ -3,7 +3,6 @@ import streamlit as st
 import bomber
 import asyncio
 import pandas as pd
-#import httpx
 
 # Function to run asyncio code
 def run_asyncio_code(keyword, country, api_key):
@@ -30,7 +29,7 @@ st.write("Enter the details below to fetch keyword data.")
 
 input_keyword = st.text_input("Enter the keyword", "Marketing Automation")
 input_country = st.text_input("Enter the country code", "US")
-API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Co ai tai tro :D")
+API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Need supporter :D")
 
 if st.button("Fetch Data"):
     with st.spinner("Fetching data..."):
