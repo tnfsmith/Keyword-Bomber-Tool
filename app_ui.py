@@ -44,9 +44,9 @@ API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Need sponsor :D")
 col1, col2 = st.columns(2)
 # Button in the first column
 fetch_button = col1.button("Fetch Data")
-col2=col2.success("Success! Keywords Generated")  # Display success message
+
 if fetch_button:
-   
+   with col2:
     with st.spinner("Fetching data..."):
         
         result = run_asyncio_code(input_keyword, selected_country, API_KEY) #input_country
