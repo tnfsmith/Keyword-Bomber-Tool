@@ -8,7 +8,6 @@ import pandas as pd
 def run_asyncio_code(keyword, country, api_key):
     return asyncio.run(bomber.get_keyword_data(keyword, country, api_key))
 
-
 # Function to display Keyword Data
 def display_keyword_data(keyword_data):
     st.markdown("## Keyword Data")
@@ -24,7 +23,6 @@ def display_ai_report(ai_report):
 
 # Streamlit UI layout
 st.title("Google SEO Keyword Bomber TTL")
-
 st.write("Enter the details below to fetch keyword data.")
 
 input_keyword = st.text_input("Enter the keyword", "Marketing Automation")
@@ -32,22 +30,18 @@ input_keyword = st.text_input("Enter the keyword", "Marketing Automation")
 # Dropdown for country selection with 'Other Country' option
 countries = ["VN", "US"]
 selected_country = st.selectbox("Select the country code", countries)
-#input_country = st.text_input("Enter the country code", "VN")
 
 API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Need sponsor :D")
 
-# Initialize a key in the session state to track the last input
+# Initialize session state for button click and input tracking
+if 'button_clicked' not in st.session_state:
+    st.session_state['button_clicked'] = False
 if 'last_input' not in st.session_state:
-    st.session_state['last_input'] = ''
-
-# Button to fetch data
-fetch_button = st.button("Fetch Data")
-
-# Create a placeholder for the success message
-success_message_placeholder = st.empty()
+    st.session_state['last_input'] = input_keyword
 
 # Function to process the data fetching
 def process_data():
+    st.session_state['button_clicked'] = True
     with st.spinner("Fetching data..."):
         result = run_asyncio_code(input_keyword, selected_country, API_KEY)
         if result.get('success'):
@@ -56,6 +50,13 @@ def process_data():
             display_ai_report(result['result']['ai_report'])
         else:
             st.error("Failed to fetch data")
+    st.session_state['button_clicked'] = False
+
+# Create a placeholder for the success message
+success_message_placeholder = st.empty()
+
+# Button to fetch data
+fetch_button = st.button("Fetch Data", disabled=st.session_state['button_clicked'])
 
 # Check if the Enter key was pressed or button clicked
 if fetch_button or (input_keyword != st.session_state['last_input']):
