@@ -26,7 +26,7 @@ st.title("Google SEO Keyword Bomber TTL")
 st.write("Enter the details below to fetch keyword data. Data analyze with LLM from OpenAI.")
 
 with st.form(key='my_form'):
-    input_keyword = st.text_input("Enter the keyword", "Marketing Automation")
+    input_keyword = st.text_input("Enter the Google SEO keyword", "Marketing Automation")
     selected_country = st.selectbox("Select the country code", ["VN", "US"])
     API_KEY = st.text_input("Enter your OpenAI API Key. If not AI Analyze Report will be vacant", "sk-Need sponsor :D")
     submit_button = st.form_submit_button(label='Fetch Data')
