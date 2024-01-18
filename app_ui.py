@@ -25,6 +25,10 @@ def display_ai_report(ai_report):
 st.title("Google SEO Keyword Bomber TTL")
 st.write("Enter the details below to fetch keyword data.")
 
+# Check if data is being fetched
+if 'fetching_data' not in st.session_state:
+    st.session_state['fetching_data'] = False
+
 with st.form(key='my_form'):
     input_keyword = st.text_input("Enter the keyword", "Marketing Automation")
     selected_country = st.selectbox("Select the country code", ["VN", "US"])
@@ -37,6 +41,7 @@ error_message_placeholder = st.empty()
 
 # Function to process the data fetching
 def process_data():
+    st.session_state['fetching_data'] = True
     with st.spinner("Fetching data..."):
         result = run_asyncio_code(input_keyword, selected_country, API_KEY)
         if result.get('success'):
@@ -47,6 +52,8 @@ def process_data():
             st.error("Failed to fetch data")
             error_message_placeholder.error(f"Failed to fetch data. Please try again!")
 
+    st.session_state['fetching_data'] = False
+
 # Check if the form was submitted
-if submit_button:
+if submit_button and not st.session_state['fetching_data']:
     process_data()
