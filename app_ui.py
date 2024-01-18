@@ -36,32 +36,28 @@ selected_country = st.selectbox("Select the country code", countries)
 
 API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Need sponsor :D")
 
-# Session state initialization
-if 'fetching_data' not in st.session_state:
-    st.session_state['fetching_data'] = False
+# Initialize a key in the session state to track the last input
+if 'last_input' not in st.session_state:
+    st.session_state['last_input'] = ''
 
-# Fetch Data button
-if not st.session_state['fetching_data']:
-    fetch_button = st.button("Fetch Data")
+# Button to fetch data
+fetch_button = st.button("Fetch Data")
 
-# Placeholder for success/error message
-message_placeholder = st.empty()
+# Create a placeholder for the success message
+success_message_placeholder = st.empty()
 
-# Process data fetching
+# Function to process the data fetching
 def process_data():
-    st.session_state['fetching_data'] = True
-    message_placeholder.empty()  # Clear previous messages
     with st.spinner("Fetching data..."):
         result = run_asyncio_code(input_keyword, selected_country, API_KEY)
         if result.get('success'):
-            message_placeholder.success(f"Success! Keywords Generated: {input_keyword}. Used specified Google agent country code and language in {selected_country} for best result!")
+            success_message_placeholder.success(f"Success! Keywords Generated: {input_keyword}. Used specified Google agent country code and language in {selected_country} for best result!")
             display_keyword_data(result['result']['keyword_data'])
             display_ai_report(result['result']['ai_report'])
         else:
-            message_placeholder.error("Failed to fetch data")
-    st.session_state['fetching_data'] = False
+            st.error("Failed to fetch data")
 
-# Trigger data fetching
-if 'fetch_button' in locals() and fetch_button or (input_keyword != st.session_state['last_input']):
+# Check if the Enter key was pressed or button clicked
+if fetch_button or (input_keyword != st.session_state['last_input']):
     st.session_state['last_input'] = input_keyword
     process_data()
