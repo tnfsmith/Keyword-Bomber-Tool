@@ -48,7 +48,7 @@ if fetch_button:
     with st.spinner("Fetching data..."):
         result = run_asyncio_code(input_keyword, selected_country, API_KEY)  # input_country
         if result.get('success'):
-            success_message_placeholder.success("Success! Keywords Generated")  # Display success message next to the button
+            success_message_placeholder.success("Success! Keywords Generated: " + input_keyword)  # Display success message next to the button
             display_keyword_data(result['result']['keyword_data'])
             display_ai_report(result['result']['ai_report'])
         else:
