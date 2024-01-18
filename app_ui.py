@@ -22,7 +22,7 @@ def display_ai_report(ai_report):
     st.markdown(ai_report)
 
 # Streamlit UI layout
-st.title("Google SEO Keyword Bomber TTL")
+st.title("Google SEO Keyword Bomber LLM")
 st.write("Enter the details below to fetch keyword data. Data analyze with LLM from OpenAI.")
 
 with st.form(key='my_form'):
