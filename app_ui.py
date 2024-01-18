@@ -33,6 +33,7 @@ with st.form(key='my_form'):
 
 # Create a placeholder for the success message
 success_message_placeholder = st.empty()
+error_message_placeholder = st.empty()
 
 # Function to process the data fetching
 def process_data():
@@ -44,7 +45,7 @@ def process_data():
             display_ai_report(result['result']['ai_report'])
         else:
             st.error("Failed to fetch data")
-
+            error_message_placeholder.error(f"Failed to fetch data. Try a diffence keyword")
 # Check if the form was submitted
 if submit_button:
     process_data()
