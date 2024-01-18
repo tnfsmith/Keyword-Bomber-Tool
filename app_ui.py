@@ -51,3 +51,9 @@ def process_data():
 # Check if the form was submitted
 if submit_button:
     process_data()
+
+# Footer
+st.markdown("---")  # This adds a horizontal line for visual separation
+st.markdown("#### Developed by [Le Quoc Thai](https://lequocthai.com)")
+st.markdown("Contact: [lequocthai@gmail.com](mailto:lequocthai@gmail.com)")
+st.markdown("Connect me on [Telegram](https://t.me/tnfsmith) | [LinkedIn](https://www.linkedin.com/in/lequocthai)")
