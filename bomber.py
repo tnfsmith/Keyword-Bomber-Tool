@@ -99,7 +99,7 @@ async def get_suggestions_for_query_async(query,country):
     
     async with httpx.AsyncClient() as client:
         try:
-            response = await client.get(f"https://google.com.vn/complete/search?output=toolbar&gl={country}&hl=vi&q={query}", headers=headers)
+            response = await client.get(f"https://google.com.vn/complete/search?output=toolbar&gl={country}&q={query}", headers=headers)
             suggestions = []
             if response.status_code == 200:
                 root = ET.fromstring(response.content)
@@ -128,7 +128,7 @@ def get_language_for_country(country):
     return "en-US"
 
 def get_suggestions_for_query(query):
-    response = requests.get(f"https://google.com.vn/complete/search?output=toolbar&gl={country}&hl=vi&q={query}")
+    response = requests.get(f"https://google.com.vn/complete/search?output=toolbar&gl={country}&q={query}")
     suggestions = []
     try:
         if response.status_code == 200:
