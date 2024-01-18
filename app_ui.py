@@ -40,23 +40,19 @@ selected_country = st.selectbox("Select the country code", countries)
 
 API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Need sponsor :D")
 
+# Button to fetch data
 fetch_button = st.button("Fetch Data")# Create a placeholder for the success message
 success_message_placeholder = st.empty()
-# Function to process the data fetching
-def process_data():
+
+if fetch_button:
     with st.spinner("Fetching data..."):
-        result = run_asyncio_code(input_keyword, selected_country, API_KEY)
+        result = run_asyncio_code(input_keyword, selected_country, API_KEY)  # input_country
         if result.get('success'):
-            success_message_placeholder.success(f"Success! Keywords Generated: {input_keyword}. Used specified Google agent country code and language in {selected_country} for best result!")
+            success_message_placeholder.success("Success! Keywords Generated: " + input_keyword +". Used specified Google agent country code and language in "+ selected_country +" for best result!") # Display success message next to the button
             display_keyword_data(result['result']['keyword_data'])
             display_ai_report(result['result']['ai_report'])
         else:
             st.error("Failed to fetch data")
-
-# Check if the Enter key was pressed or button clicked
-if fetch_button or (input_keyword != st.session_state['last_input']):
-    st.session_state['last_input'] = input_keyword
-    process_data()
     
 # Check if the keyword has changed
 #if input_keyword != st.session_state['last_keyword']:
