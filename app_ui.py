@@ -25,23 +25,17 @@ def display_ai_report(ai_report):
 st.title("Google SEO Keyword Bomber TTL")
 st.write("Enter the details below to fetch keyword data.")
 
-input_keyword = st.text_input("Enter the keyword", "Marketing Automation")
+with st.form(key='my_form'):
+    input_keyword = st.text_input("Enter the keyword", "Marketing Automation")
+    selected_country = st.selectbox("Select the country code", ["VN", "US"])
+    API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Need sponsor :D")
+    submit_button = st.form_submit_button(label='Fetch Data')
 
-# Dropdown for country selection with 'Other Country' option
-countries = ["VN", "US"]
-selected_country = st.selectbox("Select the country code", countries)
-
-API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Need sponsor :D")
-
-# Initialize session state for button click and input tracking
-if 'button_clicked' not in st.session_state:
-    st.session_state['button_clicked'] = False
-if 'last_input' not in st.session_state:
-    st.session_state['last_input'] = input_keyword
+# Create a placeholder for the success message
+success_message_placeholder = st.empty()
 
 # Function to process the data fetching
 def process_data():
-    st.session_state['button_clicked'] = True
     with st.spinner("Fetching data..."):
         result = run_asyncio_code(input_keyword, selected_country, API_KEY)
         if result.get('success'):
@@ -50,15 +44,7 @@ def process_data():
             display_ai_report(result['result']['ai_report'])
         else:
             st.error("Failed to fetch data")
-    st.session_state['button_clicked'] = False
 
-# Button to fetch data
-fetch_button = st.button("Fetch Data", disabled=st.session_state['button_clicked'])
-
-# Create a placeholder for the success message
-success_message_placeholder = st.empty()
-
-# Check if the Enter key was pressed or button clicked
-if fetch_button or (input_keyword != st.session_state['last_input']):
-    st.session_state['last_input'] = input_keyword
+# Check if the form was submitted
+if submit_button:
     process_data()
