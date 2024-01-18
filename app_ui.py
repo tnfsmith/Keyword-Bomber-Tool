@@ -45,6 +45,7 @@ if st.button("Fetch Data"):
         
         result = run_asyncio_code(input_keyword, selected_country, API_KEY) #input_country
         if result.get('success'):
+            st.success("Success! Keywords Generated")  # Display success message
             display_keyword_data(result['result']['keyword_data'])
             display_ai_report(result['result']['ai_report'])
         else:
