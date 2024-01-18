@@ -55,21 +55,6 @@ if submit_button:
 # Footer
 st.markdown("---")  # This adds a horizontal line for visual separation
 
-# Create two columns for the footer
-col1, col2 = st.columns(2)
-
-# First row with smaller text
-col1.markdown("<small>Developed by <a href='https://lequocthai.com'>Le Quoc Thai</a></small>", unsafe_allow_html=True)
-col1.markdown("<small>Contact: <a href='mailto:lequocthai@gmail.com'>lequocthai@gmail.com</a></small>", unsafe_allow_html=True)
-
-# Second row with smaller text
-col1.markdown("<small>Connect <a href='https://t.me/tnfsmith'>Telegram</a></small>", unsafe_allow_html=True)
-col1.markdown("<small><a href='tel:0985010707'>Zalo</a></small>", unsafe_allow_html=True)
-# ... (rest of your Streamlit app)
-
-# Footer
-st.markdown("---")  # This adds a horizontal line for visual separation
-
 # Footer content with smaller text in one column
 footer_content = """
 <small>Developed by <a href='https://lequocthai.com'>Le Quoc Thai</a></small> <br>
