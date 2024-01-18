@@ -41,10 +41,10 @@ selected_country = st.selectbox("Select the country code", countries)
 API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Need sponsor :D")
 # Creating columns for layout
 #col1, col2 = st.columns(2)
-# Create a placeholder for the success message
-success_message_placeholder = st.empty()
+
 # Button to fetch data
-fetch_button = st.button("Fetch Data")
+fetch_button = st.button("Fetch Data")# Create a placeholder for the success message
+success_message_placeholder = st.empty()
 
 if fetch_button:
     with st.spinner("Fetching data..."):
