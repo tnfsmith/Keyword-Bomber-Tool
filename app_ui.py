@@ -54,20 +54,12 @@ if submit_button:
 
 # Footer
 st.markdown("---")  # This adds a horizontal line for visual separation
-st.markdown("#### Developed by [Le Quoc Thai](https://lequocthai.com)")
-st.markdown("Contact: [lequocthai@gmail.com](mailto:lequocthai@gmail.com)")
-st.markdown("Connect me on [Telegram](https://t.me/tnfsmith) | [LinkedIn](https://www.linkedin.com/in/lequocthai)")
-
-# Footer
-st.markdown("---")  # This adds a horizontal line for visual separation
-
 # Create two columns for the footer
 col1, col2 = st.columns(2)
-
 # First row
 col1.markdown("#### Developed by [Le Quoc Thai](https://lequocthai.com)")
-col2.markdown("#### Contact: [lequocthai@gmail.com](mailto:lequocthai@gmail.com)")
+col2.markdown("#### Contact email: [lequocthai@gmail.com](mailto:lequocthai@gmail.com)")
 
 # Second row
 col1.markdown("#### Connect me on [Telegram](https://t.me/tnfsmith)")
-col2.markdown("#### [LinkedIn](https://www.linkedin.com/in/lequocthai)")
+col2.markdown("#### Connect me on [Zalo](<a href=tel:0985010707>")
