@@ -66,4 +66,4 @@ col2.markdown("<small>Contact: <a href='mailto:lequocthai@gmail.com'>lequocthai@
 
 # Second row with smaller text
 col1.markdown("<small>Connect <a href='https://t.me/tnfsmith'>Telegram</a></small>", unsafe_allow_html=True)
-col2.markdown("<small><a href='https://www.linkedin.com/in/lequocthai'>LinkedIn</a></small>", unsafe_allow_html=True)
+col2.markdown("<small><a href='tel:0985010707'>Zalo</a></small>", unsafe_allow_html=True)
