@@ -40,13 +40,13 @@ selected_country = st.selectbox("Select the country code", countries)
 
 API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Need sponsor :D")
 # Creating columns for layout
-col1, col2 = st.columns(2)
+#col1, col2 = st.columns(2)
 if st.button("Fetch Data"):
     with st.spinner("Fetching data..."):
         
         result = run_asyncio_code(input_keyword, selected_country, API_KEY) #input_country
         if result.get('success'):
-            col2.success("Success! Keywords Generated")
+            st.success("Success! Keywords Generated")
             display_keyword_data(result['result']['keyword_data'])
             display_ai_report(result['result']['ai_report'])
         else:
