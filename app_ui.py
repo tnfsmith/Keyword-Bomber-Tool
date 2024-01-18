@@ -52,11 +52,11 @@ def process_data():
             st.error("Failed to fetch data")
     st.session_state['button_clicked'] = False
 
-# Create a placeholder for the success message
-success_message_placeholder = st.empty()
-
 # Button to fetch data
 fetch_button = st.button("Fetch Data", disabled=st.session_state['button_clicked'])
+
+# Create a placeholder for the success message
+success_message_placeholder = st.empty()
 
 # Check if the Enter key was pressed or button clicked
 if fetch_button or (input_keyword != st.session_state['last_input']):
