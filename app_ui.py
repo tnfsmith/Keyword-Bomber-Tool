@@ -45,7 +45,8 @@ col1, col2 = st.columns(2)
 # Button in the first column
 fetch_button = col1.button("Fetch Data")
 
-if fetch_button("Fetch Data"):
+if fetch_button:
+    with col2:
     with st.spinner("Fetching data..."):
         
         result = run_asyncio_code(input_keyword, selected_country, API_KEY) #input_country
