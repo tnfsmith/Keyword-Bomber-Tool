@@ -40,6 +40,8 @@ selected_country = st.selectbox("Select the country code", countries)
 
 API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Need sponsor :D")
 
+fetch_button = st.button("Fetch Data")# Create a placeholder for the success message
+success_message_placeholder = st.empty()
 # Function to process the data fetching
 def process_data():
     with st.spinner("Fetching data..."):
