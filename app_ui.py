@@ -46,6 +46,7 @@ def process_data():
         else:
             st.error("Failed to fetch data")
             error_message_placeholder.error(f"Failed to fetch data. Please try again!")
+
 # Check if the form was submitted
 if submit_button:
     process_data()
