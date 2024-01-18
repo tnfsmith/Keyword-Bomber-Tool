@@ -57,7 +57,7 @@ st.markdown("---")  # This adds a horizontal line for visual separation
 
 # Footer content with smaller text in one column
 footer_content = """
-<small>Developed by <a href='https://lequocthai.com'>Le Quoc Thai</a></small> <br>
+<small>Developed by <a href='https://lequocthai.com'>Lê Quốc Thái</a></small> <br>
 <small>Contact email: <a href='mailto:lequocthai@gmail.com'>lequocthai@gmail.com</a></small> <br>
 <small>Connect social <a href='https://t.me/tnfsmith'>Telegram</a> | <a href='tel:0985010707'>Zalo</a></small>
 """
