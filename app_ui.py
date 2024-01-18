@@ -52,14 +52,18 @@ def process_data():
 if submit_button:
     process_data()
 
+# ... (rest of your Streamlit app)
+
 # Footer
 st.markdown("---")  # This adds a horizontal line for visual separation
+
 # Create two columns for the footer
 col1, col2 = st.columns(2)
-# First row
-col1.markdown("#### Developed by [Le Quoc Thai](https://lequocthai.com)")
-col2.markdown("#### Contact email: [lequocthai@gmail.com](mailto:lequocthai@gmail.com)")
 
-# Second row
-col1.markdown("#### Connect [Telegram](https://t.me/tnfsmith)")
-col2.markdown("#### Connect [Zalo](tel:0985010707")
+# First row with smaller text
+col1.markdown("<small>Developed by <a href='https://lequocthai.com'>Le Quoc Thai</a></small>", unsafe_allow_html=True)
+col2.markdown("<small>Contact: <a href='mailto:lequocthai@gmail.com'>lequocthai@gmail.com</a></small>", unsafe_allow_html=True)
+
+# Second row with smaller text
+col1.markdown("<small>Connect <a href='https://t.me/tnfsmith'>Telegram</a></small>", unsafe_allow_html=True)
+col2.markdown("<small><a href='https://www.linkedin.com/in/lequocthai'>LinkedIn</a></small>", unsafe_allow_html=True)
