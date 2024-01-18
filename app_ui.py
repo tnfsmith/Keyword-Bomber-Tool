@@ -40,7 +40,7 @@ selected_country = st.selectbox("Select the country code", countries)
 
 API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Need sponsor :D")
 # Creating columns for layout
-col1, col2 = st.columns([1, 9])
+col1, col2 = st.columns(2)
 if st.button("Fetch Data"):
     with st.spinner("Fetching data..."):
         
