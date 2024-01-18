@@ -44,16 +44,12 @@ if st.button("Fetch Data"):
     with st.spinner("Fetching data..."):
         
         result = run_asyncio_code(input_keyword, selected_country, API_KEY) #input_country
-        if result.get('success','message'):
+        if result.get('success'):
             display_keyword_data(result['result']['keyword_data'])
             display_ai_report(result['result']['ai_report'])
         else:
             st.error("Failed to fetch data")
-result = {
-        
-        st.result.get ("message"),
-        
-        },
+    st.print(result.get ("message"))
     
 # Check if the keyword has changed
 #if input_keyword != st.session_state['last_keyword']:
