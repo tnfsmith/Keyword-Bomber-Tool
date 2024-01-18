@@ -41,7 +41,7 @@ selected_country = st.selectbox("Select the country code", countries)
 API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Need sponsor :D")
 
 # Create two columns for the button and the message
-col1, col2 = st.beta_columns(2)
+col1, col2 = st.columns(2)
 # Button in the first column
 fetch_button = col1.button("Fetch Data")
 
