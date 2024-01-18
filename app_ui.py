@@ -65,3 +65,16 @@ col1.markdown("<small>Contact: <a href='mailto:lequocthai@gmail.com'>lequocthai@
 # Second row with smaller text
 col1.markdown("<small>Connect <a href='https://t.me/tnfsmith'>Telegram</a></small>", unsafe_allow_html=True)
 col1.markdown("<small><a href='tel:0985010707'>Zalo</a></small>", unsafe_allow_html=True)
+# ... (rest of your Streamlit app)
+
+# Footer
+st.markdown("---")  # This adds a horizontal line for visual separation
+
+# Footer content with smaller text in one column
+footer_content = """
+<small>Developed by <a href='https://lequocthai.com'>Le Quoc Thai</a></small> <br>
+<small>Contact: <a href='mailto:lequocthai@gmail.com'>lequocthai@gmail.com</a></small> <br>
+<small>Connect <a href='https://t.me/tnfsmith'>Telegram</a> | <a href='tel:0985010707'>Zalo</a></small>
+"""
+
+st.markdown(footer_content, unsafe_allow_html=True)
