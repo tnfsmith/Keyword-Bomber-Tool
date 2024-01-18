@@ -35,17 +35,12 @@ selected_country = st.selectbox("Select the country code", countries)
 #input_country = st.text_input("Enter the country code", "VN")
 
 API_KEY = st.text_input("Enter your OpenAI API Key", "sk-Need sponsor :D")
-
-# Initialize session state for button state
-if 'button_clicked' not in st.session_state:
-    st.session_state['button_clicked'] = False
-
 # Initialize a key in the session state to track the last input
 if 'last_input' not in st.session_state:
     st.session_state['last_input'] = ''
 
 # Button to fetch data
-fetch_button = st.button("Fetch Data", disabled=st.session_state['button_clicked'])
+fetch_button = st.button("Fetch Data")
 
 # Create a placeholder for the success message
 success_message_placeholder = st.empty()
@@ -60,9 +55,8 @@ def process_data():
             display_ai_report(result['result']['ai_report'])
         else:
             st.error("Failed to fetch data")
-    st.session_state['button_clicked'] = False  # Reset button state
 
+# Check if the Enter key was pressed or button clicked
 if fetch_button or (input_keyword != st.session_state['last_input']):
     st.session_state['last_input'] = input_keyword
-    st.session_state['button_clicked'] = True  # Disable button
     process_data()
