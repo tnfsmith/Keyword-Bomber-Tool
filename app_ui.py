@@ -62,8 +62,7 @@ footer_content = """
 <small>Connect social <a href='https://t.me/tnfsmith'>Telegram</a> | <a href='tel:0985010707'>Zalo</a></small>
 
 """
-
-st.markdown(footer_content, unsafe_allow_html=True)
+#st.markdown(footer_content, unsafe_allow_html=True)
 # Footer and BuyMeACoffee button
 st.markdown("""
         <h10 style="text-align: center; position: fixed; bottom: 3rem;">Developed <a href='https://lequocthai.com'>Lê Quốc Thái</a> | Contact email: <a href='mailto:lequocthai@gmail.com'>lequocthai[at]gmail.com</a> | Connect social <a href='https://t.me/tnfsmith'>Telegram</a> | <a href='tel:0985010707'>Zalo</a> </h10>""",
