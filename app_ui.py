@@ -73,7 +73,7 @@ html(button, height=60, width=220)
 st.markdown(
         """
         <style>
-            iframe[width="200"] {
+            iframe[width="220"] {
                 position: fixed;
                 bottom: 60px;
                 right: 40px;
